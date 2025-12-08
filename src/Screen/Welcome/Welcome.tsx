@@ -13,13 +13,21 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { widthPixel, heightPixel, fontPixel } from '../../utils/Responsive';
 import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../Navigation/Navigation';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const Welcome = () => {
+    const Navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const [HidePassword, SetHidePassword] = useState(true);
 
   const TogglePassword = () => {
     SetHidePassword(!HidePassword);
   };
+
+  const Redirect=()=>{
+    Navigation.navigate("updateprofile")
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -95,7 +103,7 @@ const Welcome = () => {
               </View>
 
               <View style={styles.Loginbutton}>
-                <TouchableOpacity activeOpacity={0.8} style={styles.LoginbuttonWrapper}>
+                <TouchableOpacity onPress={Redirect} activeOpacity={0.8} style={styles.LoginbuttonWrapper}>
                   <LinearGradient
                     colors={['#E461A3', '#E44C59']}
                     start={{ x: 0, y: 0 }}

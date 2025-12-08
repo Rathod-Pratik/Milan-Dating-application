@@ -184,8 +184,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   googleIcon: {
-    width: 24,
-    height: 24,
+    width: widthPixel(24),
+    height: heightPixel(24),
     resizeMode: 'contain',
   },
   socialButtonText: {
