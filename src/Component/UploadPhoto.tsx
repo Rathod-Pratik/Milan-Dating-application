@@ -1,42 +1,42 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import { Camera ,  Image as ImageLogo,} from 'lucide-react-native'
-import { fontPixel, heightPixel, widthPixel } from '../utils/Responsive'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { Camera, Image as ImageLogo } from 'lucide-react-native';
+import { fontPixel, heightPixel, widthPixel } from '../utils/Responsive';
 
 const UploadPhoto = () => {
   return (
-   <View style={styles.photoContainer}>
-            <Image
-              style={styles.image}
-              source={require('../../assets/Image/user.png')}
-              resizeMode="contain"
-            />
-            <Text style={styles.phototitleContainer}>
-              Add Photos to complete your Profile
-            </Text>
-            <Text style={styles.photoSubTitle}>
-              Photo Privacy controls available in Settings
-            </Text>
-            <TouchableOpacity style={styles.galleryButton}>
-              <View style={styles.ButtonContainer}>
-                <ImageLogo color={'#fff'} />
-                <Text style={styles.galleryButtonText}>Add From Gallery</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View style={styles.ButtonContainer}>
-                <Camera color={'#E91E63'} />
-                <Text style={styles.cameraText}>Use Camera</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-  )
-}
+    <View style={styles.photoContainer}>
+      <Image
+        style={styles.image}
+        source={require('../assets/Image/user.png')}
+        resizeMode="contain"
+      />
+      <Text style={styles.phototitleContainer}>
+        Add Photos to complete your Profile
+      </Text>
+      <Text style={styles.photoSubTitle}>
+        Photo Privacy controls available in Settings
+      </Text>
+      <TouchableOpacity style={styles.galleryButton}>
+        <View style={styles.ButtonContainer}>
+          <ImageLogo color={'#fff'} />
+          <Text style={styles.galleryButtonText}>Add From Gallery</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <View style={styles.ButtonContainer}>
+          <Camera color={'#E91E63'} />
+          <Text style={styles.cameraText}>Use Camera</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-export default UploadPhoto
+export default UploadPhoto;
 
 const styles = StyleSheet.create({
-     photoContainer: {
+  photoContainer: {
     alignItems: 'center',
     marginTop: 20,
   },
@@ -78,10 +78,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 5,
   },
-    ButtonContainer: {
+  ButtonContainer: {
     display: 'flex',
     flexDirection: 'row',
     paddingVertical: 5,
     gap: 10,
   },
-})
+});

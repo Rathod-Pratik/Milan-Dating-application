@@ -5,15 +5,15 @@ import { ArrowLeft } from 'lucide-react-native'
 interface headerProp{
     type:string,
     handleBack:()=>void,
-    handleNext:()=>void
+    SkipUpdate:()=>void,
 }
-const Header = ({type,handleBack,handleNext}:headerProp) => {
+const Header = ({type,handleBack,SkipUpdate}:headerProp) => {
   return (
         <View style={styles.header}>
             {type === 'familydetails' ? (
               <>
                 <View />
-                <TouchableOpacity onPress={handleNext}>
+                <TouchableOpacity onPress={SkipUpdate}>
                   <Text style={styles.headerSkipText}>Skip</Text>
                 </TouchableOpacity>
               </>

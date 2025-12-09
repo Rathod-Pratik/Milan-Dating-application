@@ -14,8 +14,14 @@ import { RenderProgressBar } from '../../Component/RenderProgressBar';
 import UploadPhoto from '../../Component/UploadPhoto';
 import Header from '../../Component/Header';
 import { steps } from '../../utils/Data';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../Navigation/Navigation';
 
 const UpdateProfile = () => {
+  const Navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
 
@@ -23,7 +29,7 @@ const UpdateProfile = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      console.log('Finished:', formData);
+      Navigation.navigate('premium');
     }
   };
 
@@ -33,7 +39,10 @@ const UpdateProfile = () => {
     }
   };
 
-  const handleChange = (id, value) => {
+  const SkipUpdate = () => {
+    Navigation.navigate('premium');
+  };
+  const handleChange = (id:string, value:string) => {
     setFormData({ ...formData, [id]: value });
   };
 
@@ -46,7 +55,7 @@ const UpdateProfile = () => {
       <Header
         type={currentScreen.type}
         handleBack={handleBack}
-        handleNext={handleNext}
+        SkipUpdate={SkipUpdate}
       />
 
       <ScrollView
